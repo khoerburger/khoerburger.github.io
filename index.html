@@ -32,23 +32,23 @@ body {
   overflow-x: hidden;
 }
 
-/* NAV */
+/* ── NAV ── */
 nav {
   position: fixed; top:0; left:0; right:0; z-index: 100;
   display: flex; align-items: center; justify-content: space-between;
   padding: 1.2rem 4rem;
-  background: rgba(9,11,14,0.9);
-  backdrop-filter: blur(14px);
+  background: rgba(9,11,14,0.92);
+  backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border);
 }
 .nav-logo { font-family:'DM Mono',monospace; font-size:0.78rem; color:var(--accent); letter-spacing:0.18em; text-transform:uppercase; }
-.nav-links { display:flex; align-items:center; gap:2.25rem; list-style:none; }
+.nav-links { display:flex; align-items:center; gap:2rem; list-style:none; }
 .nav-links a { color:var(--dim); text-decoration:none; font-size:0.78rem; font-family:'DM Mono',monospace; letter-spacing:0.06em; transition:color 0.2s; }
 .nav-links a:hover { color:var(--accent); }
 .nav-cta { display:inline-block; padding:0.45rem 1.1rem; background:var(--accent); color:var(--bg) !important; border-radius:2px; font-family:'DM Mono',monospace; font-size:0.72rem !important; letter-spacing:0.1em; text-transform:uppercase; text-decoration:none; transition:background 0.2s !important; }
 .nav-cta:hover { background:#d9ff60 !important; }
 
-/* HERO */
+/* ── HERO ── */
 .hero { min-height:100vh; display:grid; grid-template-columns:55% 45%; padding-top:72px; position:relative; overflow:hidden; }
 .grid-bg {
   position:absolute; inset:0;
@@ -79,15 +79,62 @@ h1 em { font-style:italic; color:var(--accent); }
 .stat-card:nth-child(1) .stat-num{color:var(--accent)} .stat-card:nth-child(2) .stat-num{color:var(--teal)} .stat-card:nth-child(3) .stat-num{color:var(--orange)} .stat-card:nth-child(4) .stat-num{color:var(--purple)}
 .stat-label { font-family:'DM Mono',monospace; font-size:0.68rem; color:var(--muted); letter-spacing:0.07em; text-transform:uppercase; line-height:1.45; }
 
-/* SECTIONS */
+/* ── SECTIONS ── */
 section { padding:6rem 5rem; max-width:1380px; margin:0 auto; }
 .sec-label { font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--accent); letter-spacing:0.22em; text-transform:uppercase; margin-bottom:0.65rem; display:flex; align-items:center; gap:0.75rem; }
 .sec-label::before { content:''; width:1.5rem; height:1px; background:var(--accent); }
 h2 { font-family:'DM Serif Display',serif; font-size:clamp(1.9rem,3vw,2.8rem); font-weight:400; margin-bottom:3rem; line-height:1.15; }
 hr.div { border:none; border-top:1px solid var(--border); max-width:1380px; margin:0 auto; }
 
-/* CHARTS */
-.chart-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; }
+/* ── IMPACT — BIG NUMBERS ── */
+.impact-numbers {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+}
+.impact-num-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 2.25rem 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s, transform 0.25s;
+  text-align: center;
+}
+.impact-num-card:hover { border-color: rgba(200,240,72,0.25); transform: translateY(-2px); }
+.impact-num-card::before { content:''; position:absolute; top:0;left:0;right:0; height:2px; }
+.impact-num-card:nth-child(1)::before{background:var(--accent)}
+.impact-num-card:nth-child(2)::before{background:var(--teal)}
+.impact-num-card:nth-child(3)::before{background:var(--orange)}
+.impact-num-card:nth-child(4)::before{background:var(--purple)}
+.impact-num-card:nth-child(5)::before{background:var(--accent)}
+.impact-num-card:nth-child(6)::before{background:var(--teal)}
+.impact-big {
+  font-family:'DM Serif Display',serif;
+  font-size: 3rem;
+  font-weight: 400;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+.impact-num-card:nth-child(1) .impact-big{color:var(--accent)}
+.impact-num-card:nth-child(2) .impact-big{color:var(--teal)}
+.impact-num-card:nth-child(3) .impact-big{color:var(--orange)}
+.impact-num-card:nth-child(4) .impact-big{color:var(--purple)}
+.impact-num-card:nth-child(5) .impact-big{color:var(--accent)}
+.impact-num-card:nth-child(6) .impact-big{color:var(--teal)}
+.impact-desc {
+  font-family:'DM Mono',monospace;
+  font-size: 0.68rem;
+  color: var(--muted);
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  line-height: 1.5;
+}
+
+/* ── IMPACT CHARTS ROW ── */
+.chart-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:1.5rem; }
 .chart-card { background:var(--surface); border:1px solid var(--border); border-radius:3px; padding:2rem; transition:border-color 0.3s; }
 .chart-card:hover { border-color:rgba(200,240,72,0.18); }
 .chart-head { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:1.5rem; }
@@ -95,7 +142,7 @@ hr.div { border:none; border-top:1px solid var(--border); max-width:1380px; marg
 .chart-badge { font-family:'DM Mono',monospace; font-size:0.62rem; color:var(--accent); background:rgba(200,240,72,0.1); padding:0.18rem 0.6rem; border-radius:2px; white-space:nowrap; letter-spacing:0.06em; }
 .chart-wrap { position:relative; height:220px; }
 
-/* TIMELINE */
+/* ── TIMELINE ── */
 .timeline { display:grid; grid-template-columns:200px 1fr; gap:0 3rem; }
 .tl-meta { padding-top:0.25rem; text-align:right; border-right:1px solid var(--border); padding-right:2rem; position:relative; }
 .tl-meta::after { content:''; position:absolute; right:-5px; top:0.55rem; width:8px; height:8px; border-radius:50%; background:var(--accent); box-shadow:0 0 10px var(--accent); }
@@ -107,7 +154,7 @@ hr.div { border:none; border-top:1px solid var(--border); max-width:1380px; marg
 .tl-bullets li { display:flex; gap:0.75rem; font-size:0.88rem; color:var(--dim); line-height:1.65; font-weight:300; }
 .tl-bullets li::before { content:'›'; color:var(--accent); flex-shrink:0; margin-top:0.05rem; }
 
-/* SKILLS */
+/* ── SKILLS ── */
 .skills-layout { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:start; }
 .skill-bars { display:flex; flex-direction:column; gap:1.4rem; }
 .skill-hd { display:flex; justify-content:space-between; margin-bottom:0.45rem; }
@@ -120,7 +167,44 @@ hr.div { border:none; border-top:1px solid var(--border); max-width:1380px; marg
 .tag { font-family:'DM Mono',monospace; font-size:0.68rem; letter-spacing:0.06em; padding:0.3rem 0.8rem; border-radius:2px; border:1px solid var(--border); color:var(--muted); transition:all 0.2s; cursor:default; }
 .tag:hover { border-color:var(--accent); color:var(--accent); background:rgba(200,240,72,0.05); }
 
-/* EDUCATION */
+/* ── PROJECTS ── */
+.projects-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; }
+.project-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s, transform 0.25s;
+}
+.project-card:hover { border-color: rgba(200,240,72,0.25); transform: translateY(-2px); }
+.project-card::before { content:''; position:absolute; top:0;left:0;right:0; height:2px; }
+.project-card:nth-child(1)::before{background:var(--accent)}
+.project-card:nth-child(2)::before{background:var(--teal)}
+.project-card:nth-child(3)::before{background:var(--orange)}
+.project-card:nth-child(4)::before{background:var(--purple)}
+.project-tag {
+  display: inline-block;
+  font-family:'DM Mono',monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.65rem;
+  border-radius: 2px;
+  margin-bottom: 1rem;
+}
+.project-card:nth-child(1) .project-tag { background:rgba(200,240,72,0.1); color:var(--accent); }
+.project-card:nth-child(2) .project-tag { background:rgba(76,240,180,0.1); color:var(--teal); }
+.project-card:nth-child(3) .project-tag { background:rgba(240,155,76,0.1); color:var(--orange); }
+.project-card:nth-child(4) .project-tag { background:rgba(180,140,240,0.1); color:var(--purple); }
+.project-title { font-family:'DM Serif Display',serif; font-size:1.25rem; font-weight:400; margin-bottom:0.75rem; }
+.project-desc { font-size:0.87rem; color:var(--dim); font-weight:300; line-height:1.7; margin-bottom:1.25rem; }
+.project-results { list-style:none; display:flex; flex-direction:column; gap:0.4rem; }
+.project-results li { display:flex; gap:0.6rem; font-family:'DM Mono',monospace; font-size:0.68rem; color:var(--muted); letter-spacing:0.04em; }
+.project-results li::before { content:'→'; color:var(--accent); flex-shrink:0; }
+
+/* ── EDUCATION ── */
 .edu-row { display:flex; gap:1.5rem; }
 .edu-card { flex:1; background:var(--surface); border:1px solid var(--border); border-radius:3px; padding:2rem; transition:border-color 0.3s; position:relative; overflow:hidden; }
 .edu-card:hover { border-color:rgba(200,240,72,0.25); }
@@ -131,13 +215,13 @@ hr.div { border:none; border-top:1px solid var(--border); max-width:1380px; marg
 .edu-card:nth-child(2) .edu-school{color:var(--teal)}
 .edu-desc { font-size:0.85rem; color:var(--muted); font-weight:300; line-height:1.7; }
 
-/* CONTACT */
+/* ── CONTACT ── */
 .contact-strip { background:var(--surface); border:1px solid var(--border); border-radius:3px; padding:3rem 4rem; display:flex; align-items:center; justify-content:space-between; gap:2rem; flex-wrap:wrap; max-width:1380px; margin:0 auto 6rem; }
 .contact-strip h3 { font-family:'DM Serif Display',serif; font-size:1.8rem; font-weight:400; margin-bottom:0.4rem; }
 .contact-strip p { font-size:0.9rem; color:var(--muted); font-weight:300; }
 .contact-btns { display:flex; gap:1rem; flex-wrap:wrap; }
 
-/* FOOTER */
+/* ── FOOTER ── */
 footer { border-top:1px solid var(--border); padding:2rem 5rem; display:flex; align-items:center; justify-content:space-between; max-width:1380px; margin:0 auto; }
 .foot-left { font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--muted); }
 .foot-links { display:flex; gap:2rem; }
@@ -146,24 +230,31 @@ footer { border-top:1px solid var(--border); padding:2rem 5rem; display:flex; al
 
 @keyframes fadeUp { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:translateY(0)} }
 
+@media(max-width:1100px){ .impact-numbers{grid-template-columns:repeat(3,1fr)} .chart-grid{grid-template-columns:1fr} }
 @media(max-width:960px){
   nav{padding:1rem 1.5rem} .nav-links{display:none}
   .hero{grid-template-columns:1fr} .hero-left{padding:3rem 1.5rem 2rem} .hero-right{padding:0 1.5rem 3rem}
-  section{padding:4rem 1.5rem} .chart-grid{grid-template-columns:1fr}
+  section{padding:4rem 1.5rem}
+  .impact-numbers{grid-template-columns:1fr 1fr}
+  .chart-grid{grid-template-columns:1fr}
   .timeline{grid-template-columns:1fr} .tl-meta{text-align:left;border-right:none;border-left:2px solid var(--border);padding-left:1rem;padding-right:0} .tl-meta::after{left:-5px;right:auto}
-  .skills-layout{grid-template-columns:1fr} .edu-row{flex-direction:column}
+  .skills-layout{grid-template-columns:1fr}
+  .projects-grid{grid-template-columns:1fr}
+  .edu-row{flex-direction:column}
   .contact-strip{padding:2rem 1.5rem} footer{flex-direction:column;gap:1rem;padding:1.5rem}
 }
 </style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav>
   <div class="nav-logo">Keith Hoerburger</div>
   <ul class="nav-links">
-    <li><a href="#impact">Impact</a></li>
-    <li><a href="#experience">Experience</a></li>
     <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#impact">Impact</a></li>
+    <li><a href="#projects">Projects</a></li>
     <li><a href="#education">Education</a></li>
     <li><a href="https://www.linkedin.com/in/khoerburger/" target="_blank" class="nav-cta">LinkedIn ↗</a></li>
   </ul>
@@ -176,7 +267,7 @@ footer { border-top:1px solid var(--border); padding:2rem 5rem; display:flex; al
   <div class="hero-left">
     <div class="eyebrow">Finance &amp; Operations Leader</div>
     <h1>Keith<br><em>Hoerburger</em></h1>
-    <p class="hero-desc">Finance Manager at Amazon with 10+ years turning complexity into clarity. I build frameworks that move money intelligently — across billion-dollar cost bases, AI-powered teams, and enterprise-scale operations.</p>
+    <p class="hero-desc">Finance Manager at Amazon with 10+ years turning complexity into clarity. I build frameworks that move money intelligently — across billion-dollar budgets, AI-powered teams, and enterprise-scale operations.</p>
     <div class="hero-btns">
       <a href="https://www.linkedin.com/in/khoerburger/" target="_blank" class="btn btn-primary">View LinkedIn Profile ↗</a>
       <a href="mailto:khoerbur@gmail.com" class="btn btn-ghost">Get in Touch</a>
@@ -184,7 +275,7 @@ footer { border-top:1px solid var(--border); padding:2rem 5rem; display:flex; al
   </div>
   <div class="hero-right">
     <div class="stat-grid">
-      <div class="stat-card"><div class="stat-num">$1B+</div><div class="stat-label">Cost Base<br>Owned</div></div>
+      <div class="stat-card"><div class="stat-num">~$3B</div><div class="stat-label">Total Budget<br>Managed</div></div>
       <div class="stat-card"><div class="stat-num">$131M</div><div class="stat-label">OPEX + CAPEX<br>Eliminated</div></div>
       <div class="stat-card"><div class="stat-num">7K+</div><div class="stat-label">Employees<br>Supported</div></div>
       <div class="stat-card"><div class="stat-num">10 yrs</div><div class="stat-label">Finance &<br>Analytics</div></div>
@@ -192,33 +283,47 @@ footer { border-top:1px solid var(--border); padding:2rem 5rem; display:flex; al
   </div>
 </div>
 
-<!-- IMPACT -->
-<section id="impact">
-  <div class="sec-label">By the Numbers</div>
-  <h2>Financial Impact at a Glance</h2>
-  <div class="chart-grid">
-    <div class="chart-card">
-      <div class="chart-head"><div class="chart-title">Savings by Initiative ($MM)</div><div class="chart-badge">Amazon 2022–Present</div></div>
-      <div class="chart-wrap"><canvas id="savingsChart"></canvas></div>
+<!-- ══ SKILLS (1st) ══ -->
+<section id="skills">
+  <div class="sec-label">Capabilities</div>
+  <h2>Skills &amp; Expertise</h2>
+  <div class="skills-layout">
+    <div>
+      <div class="skill-bars" id="skillBars">
+        <div><div class="skill-hd"><span class="skill-name">Financial Planning &amp; Analysis</span><span class="skill-pct">95%</span></div><div class="skill-track"><div class="skill-fill a" style="width:95%"></div></div></div>
+        <div><div class="skill-hd"><span class="skill-name">Cost Optimization &amp; Forecasting</span><span class="skill-pct">93%</span></div><div class="skill-track"><div class="skill-fill a" style="width:93%"></div></div></div>
+        <div><div class="skill-hd"><span class="skill-name">Team Leadership &amp; Mentorship</span><span class="skill-pct">90%</span></div><div class="skill-track"><div class="skill-fill d" style="width:90%"></div></div></div>
+        <div><div class="skill-hd"><span class="skill-name">Data Analytics &amp; SQL</span><span class="skill-pct">85%</span></div><div class="skill-track"><div class="skill-fill b" style="width:85%"></div></div></div>
+        <div><div class="skill-hd"><span class="skill-name">Supply Chain &amp; Operations</span><span class="skill-pct">83%</span></div><div class="skill-track"><div class="skill-fill b" style="width:83%"></div></div></div>
+        <div><div class="skill-hd"><span class="skill-name">AI Tools &amp; Automation Strategy</span><span class="skill-pct">80%</span></div><div class="skill-track"><div class="skill-fill c" style="width:80%"></div></div></div>
+        <div><div class="skill-hd"><span class="skill-name">Process Automation (RPA)</span><span class="skill-pct">78%</span></div><div class="skill-track"><div class="skill-fill c" style="width:78%"></div></div></div>
+        <div><div class="skill-hd"><span class="skill-name">Audit &amp; Internal Controls</span><span class="skill-pct">75%</span></div><div class="skill-track"><div class="skill-fill d" style="width:75%"></div></div></div>
+      </div>
+      <div class="tag-cloud">
+        <span class="tag">P&L Management</span><span class="tag">Headcount Planning</span><span class="tag">Variance Analysis</span>
+        <span class="tag">ROI Modeling</span><span class="tag">KPI Dashboards</span><span class="tag">Cross-functional Leadership</span>
+        <span class="tag">Capital Allocation</span><span class="tag">Demand Planning</span><span class="tag">Strategic Benchmarking</span>
+        <span class="tag">Fixed Cost Heatmaps</span><span class="tag">Executive Storytelling</span><span class="tag">AI Committee Chair</span>
+      </div>
     </div>
-    <div class="chart-card">
-      <div class="chart-head"><div class="chart-title">Financial Scope Over Time</div><div class="chart-badge">$ Managed</div></div>
-      <div class="chart-wrap"><canvas id="scopeChart"></canvas></div>
-    </div>
-    <div class="chart-card">
-      <div class="chart-head"><div class="chart-title">Fixed Cost Improvements</div><div class="chart-badge">Impact Summary</div></div>
-      <div class="chart-wrap"><canvas id="forecastChart"></canvas></div>
-    </div>
-    <div class="chart-card">
-      <div class="chart-head"><div class="chart-title">Growth Metrics</div><div class="chart-badge">Key Achievements</div></div>
-      <div class="chart-wrap"><canvas id="growthChart"></canvas></div>
+
+    <!-- Right side: two charts stacked -->
+    <div style="display:flex; flex-direction:column; gap:1.5rem;">
+      <div class="chart-card">
+        <div class="chart-head"><div class="chart-title">Industries</div><div class="chart-badge">Career Span</div></div>
+        <div class="chart-wrap" style="height:180px"><canvas id="industryChart"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <div class="chart-head"><div class="chart-title">Functional Areas</div><div class="chart-badge">Depth of Experience</div></div>
+        <div class="chart-wrap" style="height:180px"><canvas id="functionalChart"></canvas></div>
+      </div>
     </div>
   </div>
 </section>
 
 <hr class="div">
 
-<!-- EXPERIENCE -->
+<!-- ══ EXPERIENCE (2nd) ══ -->
 <section id="experience">
   <div class="sec-label">Career History</div>
   <h2>Professional Experience</h2>
@@ -264,7 +369,7 @@ footer { border-top:1px solid var(--border); padding:2rem 5rem; display:flex; al
       <ul class="tl-bullets">
         <li>Automated internal control workpapers, saving 100+ hours of manual audit prep annually; implemented RPA-driven analytics across audit workflows</li>
         <li>Used SQL to analyze large datasets for enterprise risk assessment, trend identification, and internal control improvements</li>
-        <li>Designed material setup processes for 6 product lines; scaled new products to 1MM units/month coordinating with product, engineering, and marketing</li>
+        <li>Designed material setup processes for 6 product lines; scaled new products to 1MM units/month</li>
         <li>Modeled supply/demand scenarios for key accounts, presenting risk analysis to Controllers and Business Unit Managers</li>
       </ul>
     </div>
@@ -274,39 +379,114 @@ footer { border-top:1px solid var(--border); padding:2rem 5rem; display:flex; al
 
 <hr class="div">
 
-<!-- SKILLS -->
-<section id="skills">
-  <div class="sec-label">Capabilities</div>
-  <h2>Skills &amp; Expertise</h2>
-  <div class="skills-layout">
-    <div>
-      <div class="skill-bars" id="skillBars">
-        <div><div class="skill-hd"><span class="skill-name">Financial Planning &amp; Analysis</span><span class="skill-pct">95%</span></div><div class="skill-track"><div class="skill-fill a" style="width:95%"></div></div></div>
-        <div><div class="skill-hd"><span class="skill-name">Cost Optimization &amp; Forecasting</span><span class="skill-pct">93%</span></div><div class="skill-track"><div class="skill-fill a" style="width:93%"></div></div></div>
-        <div><div class="skill-hd"><span class="skill-name">Team Leadership &amp; Mentorship</span><span class="skill-pct">90%</span></div><div class="skill-track"><div class="skill-fill d" style="width:90%"></div></div></div>
-        <div><div class="skill-hd"><span class="skill-name">Data Analytics &amp; SQL</span><span class="skill-pct">85%</span></div><div class="skill-track"><div class="skill-fill b" style="width:85%"></div></div></div>
-        <div><div class="skill-hd"><span class="skill-name">Supply Chain &amp; Operations</span><span class="skill-pct">83%</span></div><div class="skill-track"><div class="skill-fill b" style="width:83%"></div></div></div>
-        <div><div class="skill-hd"><span class="skill-name">AI Tools &amp; Automation Strategy</span><span class="skill-pct">80%</span></div><div class="skill-track"><div class="skill-fill c" style="width:80%"></div></div></div>
-        <div><div class="skill-hd"><span class="skill-name">Process Automation (RPA)</span><span class="skill-pct">78%</span></div><div class="skill-track"><div class="skill-fill c" style="width:78%"></div></div></div>
-        <div><div class="skill-hd"><span class="skill-name">Audit &amp; Internal Controls</span><span class="skill-pct">75%</span></div><div class="skill-track"><div class="skill-fill d" style="width:75%"></div></div></div>
-      </div>
-      <div class="tag-cloud">
-        <span class="tag">P&L Management</span><span class="tag">Headcount Planning</span><span class="tag">Variance Analysis</span>
-        <span class="tag">ROI Modeling</span><span class="tag">KPI Dashboards</span><span class="tag">Cross-functional Leadership</span>
-        <span class="tag">Capital Allocation</span><span class="tag">Demand Planning</span><span class="tag">Strategic Benchmarking</span>
-        <span class="tag">Fixed Cost Heatmaps</span><span class="tag">Executive Storytelling</span><span class="tag">AI Committee Chair</span>
-      </div>
+<!-- ══ IMPACT (3rd) ══ -->
+<section id="impact">
+  <div class="sec-label">By the Numbers</div>
+  <h2>Career Impact</h2>
+
+  <!-- Big bold numbers -->
+  <div class="impact-numbers">
+    <div class="impact-num-card">
+      <div class="impact-big">$131M</div>
+      <div class="impact-desc">OPEX + CAPEX<br>Eliminated</div>
+    </div>
+    <div class="impact-num-card">
+      <div class="impact-big">$20M</div>
+      <div class="impact-desc">Variance Exposure<br>Reduced Annually</div>
+    </div>
+    <div class="impact-num-card">
+      <div class="impact-big">$15M</div>
+      <div class="impact-desc">Cost Optimization<br>Executed</div>
+    </div>
+    <div class="impact-num-card">
+      <div class="impact-big">$33M</div>
+      <div class="impact-desc">Training Spend<br>VP-Approved</div>
+    </div>
+    <div class="impact-num-card">
+      <div class="impact-big">46%</div>
+      <div class="impact-desc">YoY Program<br>Expansion</div>
+    </div>
+    <div class="impact-num-card">
+      <div class="impact-big">+5%</div>
+      <div class="impact-desc">Forecast Accuracy<br>Improvement</div>
+    </div>
+  </div>
+
+  <!-- 3 supporting charts -->
+  <div class="chart-grid">
+    <div class="chart-card">
+      <div class="chart-head"><div class="chart-title">Budget Managed Over Career</div><div class="chart-badge">$ Billions</div></div>
+      <div class="chart-wrap"><canvas id="scopeChart"></canvas></div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-head"><div class="chart-title">Savings by Initiative</div><div class="chart-badge">$MM · Amazon</div></div>
+      <div class="chart-wrap"><canvas id="savingsChart"></canvas></div>
     </div>
     <div class="chart-card">
       <div class="chart-head"><div class="chart-title">Competency Radar</div><div class="chart-badge">Multi-domain</div></div>
-      <div class="chart-wrap" style="height:300px"><canvas id="radarChart"></canvas></div>
+      <div class="chart-wrap"><canvas id="radarChart"></canvas></div>
     </div>
   </div>
 </section>
 
 <hr class="div">
 
-<!-- EDUCATION -->
+<!-- ══ PROJECTS (4th) ══ -->
+<section id="projects">
+  <div class="sec-label">Selected Work</div>
+  <h2>Projects &amp; Initiatives</h2>
+  <div class="projects-grid">
+
+    <div class="project-card">
+      <div class="project-tag">AI &amp; Leadership</div>
+      <div class="project-title">AI Committee &amp; Training Curriculum</div>
+      <p class="project-desc">Built and led an AI adoption program across an organization of 30+ people, piloting tools, establishing a knowledge repository, and developing a structured training curriculum with external partnerships.</p>
+      <ul class="project-results">
+        <li>Team of 4 driving org-wide AI capability</li>
+        <li>Training curriculum deployed across 30+ employees</li>
+        <li>External partnership pipeline established</li>
+      </ul>
+    </div>
+
+    <div class="project-card">
+      <div class="project-tag">Cost Analytics</div>
+      <div class="project-title">Fixed Cost Heatmap Tool</div>
+      <p class="project-desc">Designed a fixed-cost heatmap to surface spend outliers across T&E, maintenance, and supplies at scale. Enabled cross-site benchmarking and drove targeted deep dives that delivered measurable savings.</p>
+      <ul class="project-results">
+        <li>$5MM in annualized savings identified</li>
+        <li>80+ North America locations analyzed</li>
+        <li>Automated benchmarking across spend categories</li>
+      </ul>
+    </div>
+
+    <div class="project-card">
+      <div class="project-tag">Financial Modeling</div>
+      <div class="project-title">$33.4MM Training ROI Dashboard</div>
+      <p class="project-desc">Developed a 3-year ROI model to justify $33.4MM in training investment, securing VP approval. Built a real-time performance dashboard to track outcomes and guide labor team decision-making on driver placement.</p>
+      <ul class="project-results">
+        <li>VP approval secured for $33.4MM spend</li>
+        <li>Real-time dashboard for operational decisions</li>
+        <li>3-year ROI framework built from scratch</li>
+      </ul>
+    </div>
+
+    <div class="project-card">
+      <div class="project-tag">Operations Strategy</div>
+      <div class="project-title">Internal Driving Program Optimization</div>
+      <p class="project-desc">Integrated demand analysis with site-level data to maximize profitability of Amazon's internal driving program versus third-party alternatives. Analysis drove a 46% YoY strategic expansion and $131MM in cost reductions.</p>
+      <ul class="project-results">
+        <li>46% YoY strategic program expansion</li>
+        <li>$100MM OPEX + $31MM CAPEX eliminated</li>
+        <li>OT analysis yielded 20% additional expansion</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<hr class="div">
+
+<!-- ══ EDUCATION (5th) ══ -->
 <section id="education">
   <div class="sec-label">Academic Background</div>
   <h2>Education</h2>
@@ -361,131 +541,128 @@ function ha(hex, a) {
   return `rgba(${r},${g},${b},${a})`;
 }
 
-// 1. Savings Bar
-new Chart(document.getElementById('savingsChart'), {
-  type:'bar',
-  data:{
-    labels:['LOA Variance\nReduction','OPEX\nEliminated','CAPEX\nEliminated','Cost\nOptimization','Heatmap\nSavings'],
-    datasets:[{
-      data:[20,100,31,15,5],
-      backgroundColor:[ha(C.accent,0.85),ha(C.teal,0.85),ha(C.orange,0.85),ha(C.purple,0.85),ha(C.accent,0.5)],
-      borderColor:'transparent', borderRadius:2, borderSkipped:false,
+// ── Industries Doughnut ──
+new Chart(document.getElementById('industryChart'), {
+  type: 'doughnut',
+  data: {
+    labels: ['E-Commerce & Logistics', 'Semiconductor & Tech', 'Supply Chain'],
+    datasets: [{
+      data: [40, 45, 15],
+      backgroundColor: [ha(C.accent,0.85), ha(C.teal,0.85), ha(C.orange,0.8)],
+      borderColor: '#111318', borderWidth: 3, hoverOffset: 5,
     }]
   },
-  options:{
-    responsive:true, maintainAspectRatio:false,
-    plugins:{legend:{display:false}, tooltip:{callbacks:{label:ctx=>` $${ctx.raw}MM`}}},
-    scales:{
-      x:{grid:{color:gc}, ticks:{font:{size:9}}},
-      y:{grid:{color:gc}, ticks:{callback:v=>`$${v}M`}}
+  options: {
+    responsive: true, maintainAspectRatio: false, cutout: '60%',
+    plugins: {
+      legend: { display: true, position: 'right', labels: { font:{size:9}, boxWidth:10, padding:10, color:'#9ca3af' } },
+      tooltip: { callbacks: { label: ctx => ` ${ctx.label}: ${ctx.raw}%` } }
     }
   }
 });
 
-// 2. Scope Line
+// ── Functional Areas Horizontal Bar ──
+new Chart(document.getElementById('functionalChart'), {
+  type: 'bar',
+  data: {
+    labels: ['FP&A', 'Finance Mgmt', 'Data Analytics', 'Supply Chain', 'Audit & Risk', 'Program Mgmt'],
+    datasets: [{
+      data: [95, 90, 85, 80, 75, 88],
+      backgroundColor: [
+        ha(C.accent,0.8), ha(C.accent,0.7), ha(C.teal,0.8),
+        ha(C.teal,0.7), ha(C.purple,0.8), ha(C.orange,0.8)
+      ],
+      borderRadius: 2, borderSkipped: false,
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false, indexAxis: 'y',
+    plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => ` ${ctx.raw}% proficiency` } } },
+    scales: {
+      x: { grid: { color: gc }, min: 0, max: 100, ticks: { callback: v => `${v}%` } },
+      y: { grid: { display: false }, ticks: { font: { size: 9 } } }
+    }
+  }
+});
+
+// ── Budget Scope Line ──
 new Chart(document.getElementById('scopeChart'), {
-  type:'line',
-  data:{
-    labels:['Oct 2022','Jul 2023','Jul 2024','Oct 2025','Present'],
-    datasets:[{
-      label:'Scope',
-      data:[0.25,0.25,1.7,1.7,1.0],
-      borderColor:C.teal, backgroundColor:ha(C.teal,0.08),
-      tension:0.4, fill:true,
-      pointBackgroundColor:C.teal, pointRadius:4, pointHoverRadius:6,
+  type: 'line',
+  data: {
+    labels: ['TI 2015', 'TI 2018', 'TI 2022', 'AMZ Prog Mgmt', 'AMZ FP&A', 'AMZ Fixed Costs'],
+    datasets: [{
+      label: 'Budget Scope',
+      data: [0.05, 0.1, 0.15, 0.25, 1.7, 1.0],
+      borderColor: C.teal,
+      backgroundColor: ha(C.teal, 0.07),
+      tension: 0.4, fill: true,
+      pointBackgroundColor: C.teal, pointRadius: 4, pointHoverRadius: 6,
     }]
   },
-  options:{
-    responsive:true, maintainAspectRatio:false,
-    plugins:{legend:{display:false}, tooltip:{callbacks:{label:ctx=>` $${ctx.raw}B managed`}}},
-    scales:{
-      x:{grid:{color:gc}, ticks:{font:{size:9}}},
-      y:{grid:{color:gc}, ticks:{callback:v=>`$${v}B`}, min:0}
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => ` $${ctx.raw}B managed` } } },
+    scales: {
+      x: { grid: { color: gc }, ticks: { font: { size: 9 } } },
+      y: { grid: { color: gc }, ticks: { callback: v => `$${v}B` }, min: 0 }
     }
   }
 });
 
-// 3. Doughnut - Fixed Cost Breakdown
-new Chart(document.getElementById('forecastChart'), {
-  type:'doughnut',
-  data:{
-    labels:['LOA Variance ($20MM)','Fixed Cost Optz ($15MM)','Heatmap Savings ($5MM)','Forecast Accuracy (+5%)'],
-    datasets:[{
-      data:[20,15,5,5],
-      backgroundColor:[ha(C.accent,0.85),ha(C.teal,0.85),ha(C.orange,0.8),ha(C.purple,0.8)],
-      borderColor:'#111318', borderWidth:3, hoverOffset:6,
+// ── Savings Bar ──
+new Chart(document.getElementById('savingsChart'), {
+  type: 'bar',
+  data: {
+    labels: ['OPEX Cut', 'CAPEX Cut', 'LOA Variance', 'Cost Optz', 'Heatmap'],
+    datasets: [{
+      data: [100, 31, 20, 15, 5],
+      backgroundColor: [ha(C.accent,0.85), ha(C.teal,0.85), ha(C.orange,0.85), ha(C.purple,0.85), ha(C.accent,0.5)],
+      borderColor: 'transparent', borderRadius: 2, borderSkipped: false,
     }]
   },
-  options:{
-    responsive:true, maintainAspectRatio:false, cutout:'60%',
-    plugins:{
-      legend:{display:true, position:'right', labels:{font:{size:9}, boxWidth:10, padding:10, color:'#9ca3af'}},
-      tooltip:{callbacks:{label:ctx=>` ${ctx.label}`}}
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => ` $${ctx.raw}MM` } } },
+    scales: {
+      x: { grid: { color: gc }, ticks: { font: { size: 9 } } },
+      y: { grid: { color: gc }, ticks: { callback: v => `$${v}M` } }
     }
   }
 });
 
-// 4. Horizontal Bar - Growth Metrics
-new Chart(document.getElementById('growthChart'), {
-  type:'bar',
-  data:{
-    labels:['OT Expansion','VP Training\nROI Secured','YoY Program\nGrowth','Audit Hours\nSaved/yr','New Product\nScale'],
-    datasets:[{
-      data:[20,33.4,46,100,1000],
-      backgroundColor:[ha(C.accent,0.8),ha(C.teal,0.8),ha(C.orange,0.8),ha(C.purple,0.8),ha(C.accent,0.5)],
-      borderRadius:2, borderSkipped:false,
-    }]
-  },
-  options:{
-    responsive:true, maintainAspectRatio:false, indexAxis:'y',
-    plugins:{
-      legend:{display:false},
-      tooltip:{callbacks:{label:(ctx)=>{
-        const u=['%','$MM','%','+ hrs','K/mo'];
-        return ` ${ctx.raw}${u[ctx.dataIndex]}`;
-      }}}
-    },
-    scales:{
-      x:{grid:{color:gc}},
-      y:{grid:{display:false}, ticks:{font:{size:9}}}
-    }
-  }
-});
-
-// 5. Radar
+// ── Radar ──
 new Chart(document.getElementById('radarChart'), {
-  type:'radar',
-  data:{
-    labels:['FP&A','Cost Strategy','Data & SQL','Leadership','Operations','AI / Automation','Audit & Risk'],
-    datasets:[{
-      label:'Keith Hoerburger',
-      data:[95,93,85,90,83,80,75],
-      borderColor:C.accent, backgroundColor:ha(C.accent,0.08),
-      pointBackgroundColor:C.accent, pointRadius:4, borderWidth:1.5,
+  type: 'radar',
+  data: {
+    labels: ['FP&A', 'Cost Strategy', 'Data & SQL', 'Leadership', 'Operations', 'AI / Auto', 'Audit'],
+    datasets: [{
+      data: [95, 93, 85, 90, 83, 80, 75],
+      borderColor: C.accent, backgroundColor: ha(C.accent, 0.08),
+      pointBackgroundColor: C.accent, pointRadius: 4, borderWidth: 1.5,
     }]
   },
-  options:{
-    responsive:true, maintainAspectRatio:false,
-    plugins:{legend:{display:false}},
-    scales:{r:{
-      min:0, max:100,
-      grid:{color:'rgba(255,255,255,0.06)'},
-      angleLines:{color:'rgba(255,255,255,0.06)'},
-      pointLabels:{font:{size:10}, color:'#9ca3af'},
-      ticks:{display:false, stepSize:25},
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false } },
+    scales: { r: {
+      min: 0, max: 100,
+      grid: { color: 'rgba(255,255,255,0.06)' },
+      angleLines: { color: 'rgba(255,255,255,0.06)' },
+      pointLabels: { font: { size: 9 }, color: '#9ca3af' },
+      ticks: { display: false }
     }}
   }
 });
 
-// Skill bar animation
+// ── Skill bar scroll animation ──
 const fills = document.querySelectorAll('.skill-fill');
 const obs = new IntersectionObserver(entries => {
   entries.forEach(e => {
-    if (e.isIntersecting) { fills.forEach(f => f.style.transform='scaleX(1)'); obs.disconnect(); }
+    if (e.isIntersecting) { fills.forEach(f => f.style.transform = 'scaleX(1)'); obs.disconnect(); }
   });
-}, {threshold:0.3});
+}, { threshold: 0.3 });
 const sb = document.getElementById('skillBars');
-if(sb) obs.observe(sb);
+if (sb) obs.observe(sb);
 </script>
 </body>
 </html>
